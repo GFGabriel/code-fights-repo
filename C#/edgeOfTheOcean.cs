@@ -30,3 +30,34 @@ int makeArrayConsecutive2(int[] statues) {
         return result;
     }
 }
+
+bool almostIncreasingSequence(int[] sequence) {
+    int count = 0;
+    for (int i = 0; i < sequence.Length -1; i++) {
+        if (sequence.Length < 3) {
+            return true;
+        } else {
+            if (sequence[i] >= sequence[i+1]) {
+                count ++;
+                if (i != 0 && i != sequence.Length-2 && sequence[i] >= sequence[i+2] && sequence[i-1] >= sequence[i+1]) {
+                    return false;
+                }
+            }
+        }
+    }
+    return count <= 1;
+}
+
+int matrixElementsSum(int[][] matrix) {
+    int result = 0;
+    for (int i = 0; i < matrix[0].Length; i++) {
+        for (int j = 0; j < matrix.Length; j++) {
+            if (matrix[j][i] != 0) {
+                result += matrix[j][i];
+            } else {
+                break;
+            }
+        }
+    }
+    return result;
+}
